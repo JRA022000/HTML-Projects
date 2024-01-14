@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<h2>Current Plants</h2>
+<table class="center" border-spacing: 10px;>
+    <thead>
+        <tr>
+            <th>Nick Name</th>
+            <th>Species</th>
+            <th>Sub Species</th>
+            <th>Source </th>
+            <th>Date of Purchase</th>
+            <th>Date of Last Watering</th>
+            <th>Date of Last Fertilization</th>
+            <th>Date of Last Pest Check</th>
+            <th>Date of Last Pest Management</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plants %}
+            <tr>
+                <td>{{ plant.nickName }}  </td>
+                <td>{{ plant.species }}  </td>
+                <td>{{ plant.subspecies }}  </td>
+                <td>{{ plant.source }}  </td>
+                <td>{{ plant.DOP }}  </td>
+                <td>{{ plant.lastWater }}  </td>
+                <td>{{ plant.lastFert }}  </td>
+                <td>{{ plant.lastPcheck }}  </td>
+                <td>{{ plant.lastPest }}  </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

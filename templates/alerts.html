@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Plant Alerts!
+{% endblock %}
+
+{% block main %}
+<h2>Plants which may need water</h2>
+<table class="center" border-spacing: 10px;>
+    <thead>
+        <tr>
+            <th>Nick Name</th>
+            <th>Species</th>
+            <th>Sub Species </th>
+            <th>Date of Last Watering</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plantsWater %}
+            <tr>
+                <td>{{ plant.nickName }}  </td>
+                <td>{{ plant.species }}  </td>
+                <td>{{ plant.subspecies }}  </td>
+                <td>{{ plant.lastWater }}  </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Plants which may need fertilization</h2>
+<table class="center" border-spacing: 10px;>
+    <thead>
+        <tr>
+            <th>Nick Name</th>
+            <th>Species</th>
+            <th>Sub Species</th>
+            <th>Date of Last Fertilization</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plantsFert %}
+            <tr>
+                <td>{{ plant.nickName }}  </td>
+                <td>{{ plant.species }}  </td>
+                <td>{{ plant.subspecies }}  </td>
+                <td>{{ plant.lastFert }}  </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Plants which may need pest check</h2>
+<table class="center" border-spacing: 10px;>
+    <thead>
+        <tr>
+            <th>Nick Name</th>
+            <th>Species</th>
+            <th>Sub Species</th>
+            <th>Date of Last Pest Check</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plantsPcheck %}
+            <tr>
+                <td>{{ plant.nickName }}  </td>
+                <td>{{ plant.species }}  </td>
+                <td>{{ plant.subspecies }}  </td>
+                <td>{{ plant.lastPcheck }}  </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Plants which may need pest management</h2>
+<table class="center" border-spacing: 10px;>
+    <thead>
+        <tr>
+            <th>Nick Name</th>
+            <th>Species</th>
+            <th>Sub Species</th>
+            <th>Date of Last Pest Management</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plantsPest %}
+            <tr>
+                <td>{{ plant.nickName }}  </td>
+                <td>{{ plant.species }}  </td>
+                <td>{{ plant.subspecies }}  </td>
+                <td>{{ plant.lastPest }}  </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
