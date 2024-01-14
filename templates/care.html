@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Plant
+{% endblock %}
+
+{% block main %}
+<form action="/addCare" method="post">
+    <div class="mb-3">
+        <select name="nickName" id="nickName">
+        {% for plant in plants %}
+            <option value = {{ plant.nickName }} > {{ plant.nickName }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input type="checkbox" id="watered" name="watered" value="True">
+        <label for="watered"> Watered? </label><br><br>
+        <input type="checkbox" id="fertilized" name="fertilized" value="True">
+        <label for="Fertilized"> Fertilized? </label><br><br>
+        <input type="checkbox" id="checkPest" name="checkPest" value="True">
+        <label for="checkPest"> Checked for Pest? </label><br><br>
+        <input type="checkbox" id="pestManage" name="pestManage" value="True">
+        <label for="pestManage"> Completed Pest Management? </label><br><br>
+    </div>
+    <button class="btn btn-primary" type="submit">Add PlantCare </button>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Plant
+{% endblock %}
+
+{% block main %}
+<form action="/addPlant" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="nickName" name="nickName" placeholder="Nick Name" type="text">
+    </div>
+    <div class="mb-3">
+        <select name="species" id="species">
+        <option disabled selected>Species</option>
+        <option value = "Philodendron" > Philodendron </option>
+        <option value = "Monstera" > Monstera </option>
+        <option value = "Pothos" > Pothos </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="subspecies" name="subspecies" placeholder="Sub Species" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="source" name="source" placeholder="Purchased from" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Add Plant</button>
+    <h2>Be sure to water and feed plant!</h2>
+</form>
+{% endblock %}
