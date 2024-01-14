@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Plants
+{% endblock %}
+
+{% block main %}
+<form action="/search" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="nickName" name="nickName" placeholder="Nick Name" type="text">
+    </div>
+    <div class="mb-3">
+        <select name="species" id="species">
+        <option disabled selected>Species</option>
+        <option value = "Philodendron" > Philodendron </option>
+        <option value = "Monstera" > Monstera </option>
+        <option value = "Pothos" > Pothos </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="subspecies" name="subspecies" placeholder="Sub Species" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="source" name="source" placeholder="Purchased from" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="daysAgoWater" name="daysAgoWater" placeholder="Last watered days ago" type="number">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="daysAgoFert" name="daysAgoFert" placeholder="Last fertilized days ago" type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Search Plant</button>
+    <br><br>
+    <h2>Search Results</h2>
+    <table class="center" border-spacing: 10px;>
+        <thead>
+            <tr>
+                <th>Nick Name</th>
+                <th>Species</th>
+                <th>Sub Species</th>
+                <th>Source </th>
+                <th>Date of Purchase</th>
+                <th>Date of Last Watering</th>
+                <th>Date of Last Fertilization</th>
+                <th>Date of Last Pest check</th>
+                <th>Date of Last Pest Management</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plant in plants %}
+                <tr>
+                    <td>{{ plant.nickName }}  </td>
+                    <td>{{ plant.species }}  </td>
+                    <td>{{ plant.subspecies }}  </td>
+                    <td>{{ plant.source }}  </td>
+                    <td>{{ plant.DOP }}  </td>
+                    <td>{{ plant.lastWater }}  </td>
+                    <td>{{ plant.lastFert }}  </td>
+                    <td>{{ plant.lastPcheck }}  </td>
+                    <td>{{ plant.lastPest }}  </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+{% endblock %}
